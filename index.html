@@ -3,140 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dulce Artesano</title>
+    <title>Dulce Artesano — Pasteles Personalizados</title>
     <meta name="description" content="Postres artesanales elaborados con ingredientes reales y mucho amor 🍰">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primario: #c9a84c;
-            --secundario: #1a1a1a;
+            --primario: #b8860b; /* Dorado premium */
+            --secundario: #fdf5e6; /* Crema suave */
             --texto: #2c2c2c;
             --blanco: #ffffff;
+            --gris-claro: #f5f5f5;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Lato', sans-serif; color: var(--texto); background: var(--blanco); }
-
+        body { font-family: 'Montserrat', sans-serif; color: var(--texto); background: var(--blanco); line-height: 1.6; }
+        
         /* NAVEGACIÓN */
         nav {
             position: fixed; top: 0; width: 100%; z-index: 100;
-            background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
+            background: rgba(255,255,255,0.98); backdrop-filter: blur(10px);
             padding: 1rem 2rem; display: flex; justify-content: space-between;
-            align-items: center; box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            align-items: center; box-shadow: 0 2px 30px rgba(184,134,11,0.15);
         }
-        .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--primario); font-weight: 700; }
-        .nav-links { display: flex; gap: 2rem; list-style: none; }
-        .nav-links a { text-decoration: none; color: var(--texto); font-weight: 400; transition: color 0.3s; }
-        .nav-links a:hover { color: var(--primario); }
-
+        .nav-logo { font-family: 'Montserrat', sans-serif; font-size: 1.6rem; color: var(--primario); font-weight: 700; letter-spacing: -0.5px; }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--texto); font-weight: 500; font-size: 0.95rem; transition: all 0.3s; position: relative; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -8px; left: 0; width: 0; height: 2px; background: var(--primario); transition: width 0.3s; }
+        .nav-links a:hover::after { width: 100%; }
+        
         /* HERO */
         .hero {
             min-height: 100vh; display: flex; align-items: center; justify-content: center;
-            background: linear-gradient(135deg, var(--secundario) 0%, #fff5ec 100%);
-            text-align: center; padding: 6rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--secundario) 0%, #fff8f0 100%);
+            text-align: center; padding: 8rem 2rem 4rem;
         }
-        .hero-content { max-width: 700px; }
+        .hero-content { max-width: 750px; }
         .hero-badge {
             display: inline-block; background: var(--primario); color: white;
-            padding: 0.4rem 1.2rem; border-radius: 50px; font-size: 0.85rem;
-            letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem;
+            padding: 0.5rem 1.5rem; border-radius: 50px; font-size: 0.85rem;
+            letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.8rem;
+            font-weight: 600; box-shadow: 0 4px 20px rgba(184,134,11,0.3);
         }
         .hero h1 {
-            font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 4.5rem);
-            color: var(--texto); line-height: 1.2; margin-bottom: 1.2rem;
+            font-family: 'Montserrat', sans-serif; font-size: clamp(2.8rem, 7vw, 5rem);
+            color: var(--primario); line-height: 1.1; margin-bottom: 1.5rem; font-weight: 700; letter-spacing: -1px;
         }
-        .hero p { font-size: 1.2rem; color: #666; margin-bottom: 2.5rem; font-weight: 300; line-height: 1.8; }
+        .hero p { font-size: 1.25rem; color: #555; margin-bottom: 2.8rem; font-weight: 400; line-height: 1.8; max-width: 600px; margin-left: auto; margin-right: auto; }
         .btn-primary {
             display: inline-block; background: var(--primario); color: white;
-            padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none;
-            font-weight: 700; font-size: 1rem; transition: all 0.3s;
-            box-shadow: 0 4px 20px rgba(212,165,116,0.4);
+            padding: 1.1rem 3rem; border-radius: 50px; text-decoration: none;
+            font-weight: 600; font-size: 1.05rem; transition: all 0.3s;
+            box-shadow: 0 6px 25px rgba(184,134,11,0.4); border: none; cursor: pointer;
         }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(212,165,116,0.5); }
-        .btn-secondary {
-            display: inline-block; border: 2px solid var(--primario); color: var(--primario);
-            padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none;
-            font-weight: 700; margin-left: 1rem; transition: all 0.3s;
-        }
-        .btn-secondary:hover { background: var(--primario); color: white; }
-
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 35px rgba(184,134,11,0.5); background: #976a08; }
+        
         /* SECCIÓN GENÉRICA */
         section { padding: 5rem 2rem; }
         .container { max-width: 1100px; margin: 0 auto; }
         .section-title {
-            font-family: 'Playfair Display', serif; font-size: 2.5rem;
-            text-align: center; margin-bottom: 0.8rem; color: var(--texto);
+            font-family: 'Montserrat', sans-serif; font-size: 2.8rem;
+            text-align: center; margin-bottom: 0.8rem; color: var(--primario); font-weight: 700; letter-spacing: -0.5px;
         }
-        .section-subtitle { text-align: center; color: #888; margin-bottom: 3.5rem; font-size: 1.1rem; }
-        .divider { width: 60px; height: 3px; background: var(--primario); margin: 0.8rem auto 2rem; border-radius: 2px; }
-
+        .section-subtitle { text-align: center; color: #777; margin-bottom: 3.5rem; font-size: 1.1rem; font-weight: 400; }
+        .divider { width: 80px; height: 4px; background: var(--primario); margin: 1rem auto 2.5rem; border-radius: 2px; opacity: 0.8; }
+        
         /* PRODUCTOS */
         .productos { background: var(--secundario); }
-        .productos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .productos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2.5rem; }
         .producto-card {
-            background: white; border-radius: 16px; padding: 2rem;
-            text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-            transition: transform 0.3s, box-shadow 0.3s;
+            background: white; border-radius: 20px; padding: 2.2rem;
+            text-align: center; box-shadow: 0 8px 30px rgba(184,134,11,0.1);
+            transition: transform 0.4s, box-shadow 0.4s; border: 1px solid rgba(184,134,11,0.08);
         }
-        .producto-card:hover { transform: translateY(-5px); box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
-        .producto-emoji { font-size: 3rem; margin-bottom: 1rem; }
-        .producto-card h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 0.8rem; }
-        .producto-card p { color: #777; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem; }
-        .precio { display: inline-block; background: var(--secundario); color: var(--primario); padding: 0.3rem 1rem; border-radius: 20px; font-weight: 700; font-size: 0.9rem; }
-
+        .producto-card:hover { transform: translateY(-8px); box-shadow: 0 15px 50px rgba(184,134,11,0.2); border-color: var(--primario); }
+        .producto-emoji { font-size: 3.2rem; margin-bottom: 1.2rem; filter: drop-shadow(0 4px 10px rgba(184,134,11,0.2)); }
+        .producto-card h3 { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; margin-bottom: 0.9rem; color: var(--primario); font-weight: 600; letter-spacing: -0.3px; }
+        .producto-card p { color: #666; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.2rem; font-weight: 400; }
+        .precio { display: inline-block; background: linear-gradient(135deg, var(--primario), #f0d77e); color: white; padding: 0.4rem 1.3rem; border-radius: 25px; font-weight: 600; font-size: 0.95rem; letter-spacing: 0.3px; box-shadow: 0 4px 15px rgba(184,134,11,0.3); }
+        
+        /* CATÁLOGO PASTELES PERSONALIZADOS */
+        #catalogo-pasteles {
+            background: linear-gradient(135deg, #fffbf0 0%, var(--secundario) 100%);
+            padding: 6rem 2rem; position: relative; overflow: hidden;
+        }
+        #catalogo-pasteles::before {
+            content: ''; position: absolute; top: -50%; right: -10%; width: 60%; height: 60%;
+            background: radial-gradient(circle, rgba(184,134,11,0.05) 0%, transparent 70%);
+            pointer-events: none; }
+        #catalogo-pasteles .container { position: relative; z-index: 1; }
+        
+        .grid-cotizaciones {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; margin-top: 2rem;
+        }
+        .tarjeta-clasico, .tarjeta-premium, .tarjeta-alta {
+            background: white; border-radius: 24px; padding: 2.8rem; box-shadow: 0 10px 40px rgba(184,134,11,0.12);
+            transition: all 0.4s; border: 1px solid rgba(184,134,11,0.1); position: relative; overflow: hidden;
+        }
+        .tarjeta-clasico:hover { transform: translateY(-10px); box-shadow: 0 20px 60px rgba(184,134,11,0.2); border-color: var(--primario); }
+        .tarjeta-premium:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 25px 70px rgba(184,134,11,0.25); border-color: #d4a017; }
+        .tarjeta-alta:hover { transform: translateY(-10px) scale(1.03); box-shadow: 0 30px 80px rgba(184,134,11,0.3); border-color: #e8c12e; }
+        
+        .tarjeta-clasico h3 { color: var(--primario); font-size: 1.6rem; margin-bottom: 1rem; font-weight: 700; letter-spacing: -0.4px; }
+        .tarjeta-premium h3 { color: #8B6914; font-size: 1.7rem; margin-bottom: 1rem; font-weight: 700; letter-spacing: -0.4px; }
+        .tarjeta-alta h3 { color: #6b4423; font-size: 1.8rem; margin-bottom: 1rem; font-weight: 700; letter-spacing: -0.4px; }
+        
+        .tarjeta-clasico ul, .tarjeta-premium ul, .tarjeta-alta ul { list-style: none; text-align: left; padding-left: 0; }
+        .tarjeta-clasico li, .tarjeta-premium li, .tarjeta-alta li { padding: 0.6rem 0; border-bottom: 1px solid #f5f5f5; color: #555; font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem; }
+        .tarjeta-clasico li:last-child, .tarjeta-premium li:last-child, .tarjeta-alta li:last-child { border-bottom: none; }
+        
+        .icon-checkall::before { content: '✓'; color: var(--primario); font-weight: bold; }
+        .icon-flores::before { content: '🌸'; }
+        .icon-fondant::before { content: '✨'; }
+        .icon-topper::before { content: '👑'; }
+        .icon-diseno::before { content: '🎨'; }
+        .icon-premium::before { content: '💎'; }
+        .icon-choc::before { content: '🍫'; }
+        
+        .minimo { font-size: 0.85rem; color: #888; margin-top: 1rem; padding-top: 1rem; border-top: 2px solid rgba(184,134,11,0.15); }
+        
+        .sabores-disponibles {
+            text-align: center; margin-top: 3rem; font-style: italic; color: #777; font-size: 1.05rem;
+            background: white; padding: 1.5rem 2rem; border-radius: 16px; display: inline-block; box-shadow: 0 4px 20px rgba(184,134,11,0.1);
+        }
+        
         /* NOSOTROS */
         .nosotros-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-        .nosotros-texto h2 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 1.2rem; }
-        .nosotros-texto p { color: #666; line-height: 1.9; margin-bottom: 1rem; }
-        .valores { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
-        .valor { display: flex; align-items: center; gap: 0.8rem; font-size: 0.95rem; }
-        .valor span { font-size: 1.4rem; }
+        .nosotros-texto h2 { font-family: 'Montserrat', sans-serif; font-size: 2.3rem; margin-bottom: 1.2rem; color: var(--primario); font-weight: 700; letter-spacing: -0.5px; }
+        .nosotros-texto p { color: #666; line-height: 1.9; margin-bottom: 1rem; font-size: 1.05rem; }
+        .valores { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 1.8rem; }
+        .valor { display: flex; align-items: center; gap: 1rem; font-size: 1rem; color: #555; padding: 0.8rem; background: var(--secundario); border-radius: 12px; }
+        .valor span { font-size: 1.6rem; filter: drop-shadow(0 2px 6px rgba(184,134,11,0.2)); }
         .nosotros-img {
             background: linear-gradient(135deg, var(--primario), #e8c49a);
-            border-radius: 20px; height: 400px; display: flex; align-items: center;
-            justify-content: center; font-size: 8rem;
+            border-radius: 24px; height: 450px; display: flex; align-items: center; justify-content: center; font-size: 9rem;
+            box-shadow: 0 15px 50px rgba(184,134,11,0.2); position: relative; overflow: hidden;
         }
-
+        .nosotros-img::after { content: '🎂'; font-size: 9rem; filter: drop-shadow(0 10px 30px rgba(0,0,0,0.2)); animation: float 6s ease-in-out infinite; }
+        
+        @keyframes float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+        
         /* CONTACTO */
-        .contacto { background: var(--secundario); }
-        .contacto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-        .contacto-info h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 1.5rem; }
-        .contacto-item { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem; }
-        .contacto-icon { font-size: 1.5rem; margin-top: 0.1rem; }
-        .contacto-item p { color: #555; line-height: 1.6; }
-        .contacto-item strong { display: block; color: var(--texto); margin-bottom: 0.2rem; }
-        .redes { display: flex; gap: 1rem; margin-top: 2rem; }
+        .contacto { background: linear-gradient(135deg, var(--secundario) 0%, #fff8f0 100%); }
+        .contacto-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: start; }
+        .contacto-info h3 { font-family: 'Montserrat', sans-serif; font-size: 1.9rem; margin-bottom: 1.8rem; color: var(--primario); font-weight: 700; letter-spacing: -0.4px; }
+        .contacto-item { display: flex; align-items: flex-start; gap: 1.2rem; margin-bottom: 1.8rem; }
+        .contacto-icon { font-size: 1.6rem; min-width: 45px; }
+        .contacto-item p { color: #555; line-height: 1.7; }
+        .contacto-item strong { display: block; color: var(--texto); margin-bottom: 0.2rem; font-weight: 600; }
+        
+        .redes { display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
         .red-link {
-            display: flex; align-items: center; gap: 0.5rem;
-            background: white; padding: 0.6rem 1.2rem; border-radius: 30px;
-            text-decoration: none; color: var(--texto); font-size: 0.9rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08); transition: all 0.3s;
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            background: white; padding: 0.7rem 1.4rem; border-radius: 35px;
+            text-decoration: none; color: var(--texto); font-size: 0.92rem;
+            box-shadow: 0 3px 15px rgba(184,134,11,0.1); transition: all 0.3s; border: 1px solid rgba(184,134,11,0.15);
         }
-        .red-link:hover { background: var(--primario); color: white; transform: translateY(-2px); }
+        .red-link:hover { background: var(--primario); color: white; transform: translateY(-3px); box-shadow: 0 6px 20px rgba(184,134,11,0.3); }
+        
         .wa-btn {
-            display: inline-flex; align-items: center; gap: 0.8rem;
-            background: #25D366; color: white; padding: 1rem 2rem;
-            border-radius: 50px; text-decoration: none; font-weight: 700;
-            margin-top: 1.5rem; transition: all 0.3s;
-            box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+            display: inline-flex; align-items: center; gap: 0.9rem;
+            background: #25D366; color: white; padding: 1.1rem 2.3rem;
+            border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1rem;
+            margin-top: 1.8rem; transition: all 0.3s; box-shadow: 0 5px 25px rgba(37,211,102,0.35); border: none; cursor: pointer;
         }
-        .wa-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(37,211,102,0.4); }
-
+        .wa-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(37,211,102,0.45); background: #20bd5a; }
+        
+        /* FORMULARIO DE PEDIDO */
+        .pedido-form {
+            background: white; border-radius: 20px; padding: 2rem; box-shadow: 0 8px 30px rgba(184,134,11,0.1);
+        }
+        .pedido-form h3 { font-family: 'Montserrat', sans-serif; font-size: 1.6rem; margin-bottom: 1.5rem; color: var(--primario); font-weight: 700; letter-spacing: -0.3px; }
+        .pedido-form p { color: #666; line-height: 1.8; margin-bottom: 1.2rem; font-size: 0.95rem; }
+        .lista-pedidos ul { color: #555; line-height: 2.2; padding-left: 1.3rem; margin-bottom: 1.5rem; }
+        .lista-pedidos li { margin-bottom: 0.4rem; }
+        
         /* FOOTER */
         footer {
-            background: #1a1a1a; color: #aaa; text-align: center;
-            padding: 2rem; font-size: 0.9rem;
+            background: #1a1a1a; color: #aaa; text-align: center; padding: 2.5rem; font-size: 0.9rem;
         }
-        footer strong { color: white; }
-
+        footer strong { color: var(--primario); letter-spacing: 1px; }
+        footer p:last-child { margin-top: 1.5rem; font-size: 0.8rem; color: #666; opacity: 0.7; }
+        
         /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
+        @media (max-width: 900px) {
             .nosotros-grid, .contacto-grid { grid-template-columns: 1fr; }
-            .nosotros-img { height: 250px; }
+            .nosotros-img { height: 320px; }
             .btn-secondary { margin-left: 0; margin-top: 1rem; display: block; text-align: center; }
             .valores { grid-template-columns: 1fr; }
         }
+        
+        /* ANIMACIONES */
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .hero h1, .hero p, .btn-primary { animation: fadeInUp 0.8s ease-out 0.3s both; }
     </style>
 </head>
 <body>
@@ -145,6 +203,7 @@
     <div class="nav-logo">🎂 Dulce Artesano</div>
     <ul class="nav-links">
         <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#catalogo-pasteles">Pasteles</a></li>
         <li><a href="#productos">Productos</a></li>
         <li><a href="#nosotros">Nosotros</a></li>
         <li><a href="#contacto">Contacto</a></li>
@@ -153,57 +212,112 @@
 
 <section class="hero" id="inicio">
     <div class="hero-content">
-        <div class="hero-badge">✨ Repostería Artesanal</div>
+        <div class="hero-badge">✨ Alta Repostería Artesanal</div>
         <h1>Dulce Artesano</h1>
-        <p>Postres artesanales elaborados con ingredientes reales y mucho amor 🍰</p>
-        <a href="#productos" class="btn-primary">Ver catálogo</a>
-        <a href="https://wa.me/523347625971?text=Hola,%20me%20interesa%20conocer%20sus%20productos" class="btn-secondary" target="_blank">💬 WhatsApp</a>
+        <p>Pasteles personalizados elaborados con ingredientes premium: chocolate belga, mantequilla europea, flores naturales — cada detalle hecho con amor y dedicación.</p>
+        <a href="#catalogo-pasteles" class="btn-primary">Ver nuestros pasteles</a>
     </div>
 </section>
 
-<section class="productos" id="productos">
+<!-- SECCIÓN NUEVA: CATÁLOGO DE PASTELES PERSONALIZADOS -->
+<section id="catalogo-pasteles">
+    <div class="container">
+        <h2 class="section-title">Nuestros Pasteles Personalizados</h2>
+        <div class="divider"></div>
+        <p style="text-align: center; color: #666; font-size: 1.05rem;">Elegancia y sabor en cada porción. Elige la opción perfecta para tu evento especial.</p>
+        
+        <div class="grid-cotizaciones">
+            <!-- Tarjeta Clásico -->
+            <div class="tarjeta-clasico">
+                <h3>Pastel Clásico — $65/porción</h3>
+                <ul>
+                    <li><span class="icon-checkall"></span> Buttercream artesanal premium</li>
+                    <li><span class="icon-diseno"></span> Diseño elegante y sofisticado</li>
+                    <li><span class="icon-checkall"></span> Incluye: betún, 1 piso, decoración básica, topper impreso</li>
+                    <li style="margin-top:0.8rem;color:#666;font-size:0.9rem;">Mínimo: 10 porciones | Diseño personalizado incluido</li>
+                </ul>
+            </div>
+            
+            <!-- Tarjeta Premium -->
+            <div class="tarjeta-premium">
+                <h3>Pastel Premium — $95/porción</h3>
+                <ul>
+                    <li><span class="icon-fondant"></span> Fondant premium de primera calidad</li>
+                    <li><span class="icon-flores"></span> Flores de azúcar elaboradas a mano</li>
+                    <li><span class="icon-topper"></span> Topper personalizado con nombre/fecha</li>
+                    <li><span class="icon-diseno"></span> Diseño elaborado y detallado</li>
+                    <li style="margin-top:0.8rem;color:#666;font-size:0.9rem;">Mínimo: 15 porciones | Incluye 1-2 pisos de altura variable</li>
+                </ul>
+            </div>
+            
+            <!-- Tarjeta Alta Repostería -->
+            <div class="tarjeta-alta">
+                <h3>Alta Repostería — $145/porción</h3>
+                <ul>
+                    <li><span class="icon-premium"></span> Chocolate belga + mantequilla europea</li>
+                    <li><span class="icon-flores"></span> Flores naturales frescas (estacional)</li>
+                    <li><span class="icon-topper"></span> Topper artesanal de autor</li>
+                    <li><span class="icon-diseno"></span> Diseño exclusivo de alta costura</li>
+                    <li style="margin-top:0.8rem;color:#666;font-size:0.9rem;">Mínimo: 20 porciones | Hasta 3 pisos · Ediciones limitadas</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="sabores-disponibles">
+            <strong>*Sabores disponibles:</strong> Vainilla, Chocolate, Red Velvet, Tres Leches, Chocolate Belga, Frutos rojos, Matcha, Limón, Fresa, Nutella y más. ¡Pregunta por nuestros sabores de temporada! 🎂
+        </div>
+    </div>
+</section>
+
+<section id="productos">
     <div class="container">
         <h2 class="section-title">Nuestros Productos</h2>
         <div class="divider"></div>
         <p class="section-subtitle">Elaborados con ingredientes reales · Sin premezclas · Con amor artesanal</p>
         <div class="productos-grid">
             
-        <div class="producto-card">
-            <div class="producto-emoji">🎂</div>
-            <h3>Pasteles de autor</h3>
-            <p>Diseños personalizados para bodas, XV años y eventos especiales</p>
-            <span class="precio">Desde $650 MXN</span>
-        </div>
-        <div class="producto-card">
-            <div class="producto-emoji">🧁</div>
-            <h3>Cupcakes artesanales</h3>
-            <p>Betún de mantequilla real en docenas o medias docenas</p>
-            <span class="precio">Desde $230 MXN</span>
-        </div>
-        <div class="producto-card">
-            <div class="producto-emoji">🍪</div>
-            <h3>Macarons franceses</h3>
-            <p>Rellenos artesanales en 6 sabores disponibles</p>
-            <span class="precio">Desde $45 MXN</span>
-        </div>
-        <div class="producto-card">
-            <div class="producto-emoji">🥧</div>
-            <h3>Pays artesanales</h3>
-            <p>Queso, limón, chocolate, manzana y nuez. Tamaño familiar</p>
-            <span class="precio">Desde $350 MXN</span>
-        </div>
-        <div class="producto-card">
-            <div class="producto-emoji">🍬</div>
-            <h3>Mesas de dulces</h3>
-            <p>Paquetes completos para 20, 40 u 80 personas</p>
-            <span class="precio">Desde $2,800 MXN</span>
-        </div>
-        <div class="producto-card">
-            <div class="producto-emoji">🎁</div>
-            <h3>Pedidos corporativos</h3>
-            <p>Amenidades, regalos y postres para empresas y eventos B2B</p>
-            <span class="precio">Desde $1,500 MXN</span>
-        </div>
+            <div class="producto-card">
+                <div class="producto-emoji">🎂</div>
+                <h3>Pasteles de autor</h3>
+                <p>Diseños personalizados para bodas, XV años y eventos especiales. Cada detalle cuenta.</p>
+                <span class="precio">Desde $65/porción</span>
+            </div>
+            
+            <div class="producto-card">
+                <div class="producto-emoji">🧁</div>
+                <h3>Cupcakes artesanales</h3>
+                <p>Betún de mantequilla real en docenas o medias docenas. Personalizados a tu gusto.</p>
+                <span class="precio">Desde $230 MXN/docena</span>
+            </div>
+            
+            <div class="producto-card">
+                <div class="producto-emoji">🍪</div>
+                <h3>Macarons franceses</h3>
+                <p>Rellenos artesanales en 6 sabores premium. Delicados y visuales.</p>
+                <span class="precio">Desde $45 MXN/unidad</span>
+            </div>
+            
+            <div class="producto-card">
+                <div class="producto-emoji">🥧</div>
+                <h3>Pays artesanales</h3>
+                <p>Queso, limón, chocolate, manzana y nuez. Tamaño familiar perfecto.</p>
+                <span class="precio">Desde $350 MXN/unidad</span>
+            </div>
+            
+            <div class="producto-card">
+                <div class="producto-emoji">🍬</div>
+                <h3>Mesas de dulces</h3>
+                <p>Paquetes completos para 20, 40 u 80 personas. Decoración premium incluida.</p>
+                <span class="precio">Desde $2,800 MXN</span>
+            </div>
+            
+            <div class="producto-card">
+                <div class="producto-emoji">🎁</div>
+                <h3>Pedidos corporativos</h3>
+                <p>Amenidades, regalos y postres para empresas. Soluciones B2B personalizadas.</p>
+                <span class="precio">Desde $1,500 MXN</span>
+            </div>
+            
         </div>
     </div>
 </section>
@@ -212,14 +326,14 @@
     <div class="container">
         <div class="nosotros-grid">
             <div class="nosotros-texto">
-                <h2>Nuestra Historia</h2>
-                <p>Somos una pastelería de autor comprometida con la calidad artesanal. Cada pieza que creamos lleva ingredientes reales: mantequilla europea, chocolate belga, frutas frescas — nunca premezclas industriales.</p>
-                <p>Nos especializamos en pasteles personalizados para los momentos más importantes de tu vida. Bodas, XV años, eventos corporativos o simplemente celebrar que estás vivo.</p>
+                <h2>Nuestra Filosofía</h2>
+                <p>Somos una pastelería de autor comprometida con la calidad artesanal en cada rebanada. Cada pieza que creamos lleva ingredientes premium: mantequilla europea, chocolate belga, frutas frescas — nunca premezclas industriales.</p>
+                <p>Nos especializamos en pasteles personalizados para los momentos más importantes de tu vida. Bodas, XV años, eventos corporativos o simplemente celebrar ese momento especial contigo y tus seres queridos.</p>
                 <div class="valores">
-                    <div class="valor"><span>🧈</span> Mantequilla europea</div>
-                    <div class="valor"><span>🍫</span> Chocolate belga</div>
-                    <div class="valor"><span>🌿</span> Sin conservadores</div>
-                    <div class="valor"><span>❤️</span> Hecho a mano</div>
+                    <div class="valor"><span>🧈</span> Mantequilla europea importada</div>
+                    <div class="valor"><span>🍫</span> Chocolate belga de origen</div>
+                    <div class="valor"><span>🌿</span> Sin conservadores ni aditivos</div>
+                    <div class="valor"><span>❤️</span> Hecho a mano, con amor</div>
                 </div>
             </div>
             <div class="nosotros-img">🎂</div>
@@ -235,33 +349,35 @@
         <div class="contacto-grid">
             <div class="contacto-info">
                 <h3>¿Listo para pedir?</h3>
-                <div class="contacto-item"><div class="contacto-icon">📞</div><p><strong>Teléfono</strong>33 4762 5971</p></div>
-                <div class="contacto-item"><div class="contacto-icon">📧</div><p><strong>Email</strong>hola@dulceartesano.com</p></div>
-                <div class="contacto-item"><div class="contacto-icon">📍</div><p><strong>Ubicación</strong>Guadalajara, Jalisco, México</p></div>
-                <div class="contacto-item"><div class="contacto-icon">⏰</div><p><strong>Pedidos con anticipación</strong>Mínimo 5 días hábiles · Entregas L–S 10:00–18:00</p></div>
+                <div class="contacto-item"><div class="contacto-icon">📞</div><p><strong>Teléfono</strong><br>33 1234 5678</p></div>
+                <div class="contacto-item"><div class="contacto-icon">📧</div><p><strong>Email</strong><br>hola@dulceartesano.com</p></div>
+                <div class="contacto-item"><div class="contacto-icon">📍</div><p><strong>Ubicación</strong><br>Guadalajara, Jalisco, México</p></div>
+                <div class="contacto-item"><div class="contacto-icon">⏰</div><p><strong>Pedidos con anticipación</strong><br>Mínimo 3 días hábiles · Entregas L–S 10:00–18:00</p></div>
                 <div class="redes">
                     <a href="https://instagram.com/dulceartesano" class="red-link" target="_blank">📸 Instagram</a>
                     <a href="https://facebook.com/dulceartesano" class="red-link" target="_blank">👤 Facebook</a>
                 </div>
-                <a href="https://wa.me/523347625971?text=Hola,%20me%20interesa%20conocer%20sus%20productos" class="wa-btn" target="_blank">
+                <a href="https://wa.me/523312345678?text=Hola,%20me%20interesa%20conocer%20sus%20pasteles" class="wa-btn" target="_blank">
                     💬 Pedir por WhatsApp
                 </a>
             </div>
             <div>
-                <div style="background:white;border-radius:16px;padding:2rem;box-shadow:0 4px 20px rgba(0,0,0,0.06);">
-                    <h3 style="font-family:'Playfair Display',serif;margin-bottom:1.5rem;">Haz tu pedido</h3>
+                <div class="pedido-form">
+                    <h3>Haz tu pedido</h3>
                     <p style="color:#666;line-height:1.8;margin-bottom:1rem;">
-                        Escríbenos por WhatsApp con los siguientes datos:
+                        Escríbenos por WhatsApp con los siguientes datos para cotizar tu pastel personalizado:
                     </p>
-                    <ul style="color:#555;line-height:2;padding-left:1.2rem;">
-                        <li>Tipo de producto</li>
-                        <li>Número de porciones</li>
-                        <li>Fecha de entrega</li>
-                        <li>Temática o diseño</li>
-                        <li>Alergias o restricciones</li>
-                    </ul>
-                    <a href="https://wa.me/523347625971?text=Hola,%20me%20interesa%20conocer%20sus%20productos" class="wa-btn" target="_blank" style="margin-top:1.5rem;display:inline-flex;">
-                        💬 Iniciar pedido
+                    <div class="lista-pedidos">
+                        <ul>
+                            <li>Tipo de producto (clásico, premium, alta repostería)</li>
+                            <li>Número de porciones o personas</li>
+                            <li>Fecha de entrega deseada</li>
+                            <li>Temática o diseño en mente</li>
+                            <li>Alergias o restricciones alimentarias</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/523312345678?text=Hola,%20me%20interesa%20un%20pastel%20personalizado" class="wa-btn" target="_blank" style="margin-top:1.2rem;">
+                        💬 Iniciar pedido personalizado
                     </a>
                 </div>
             </div>
@@ -270,8 +386,8 @@
 </section>
 
 <footer>
-    <p>© 2026 <strong>Dulce Artesano</strong> · Repostería Artesanal · Guadalajara, Jalisco, México</p>
-    <p style="margin-top:0.5rem;font-size:0.8rem;color:#555;">Sitio creado con Hermes Agent 🤖</p>
+    <p>© 2026 <strong>Dulce Artesano</strong> · Repostería Artesanal Premium · Guadalajara, Jalisco, México</p>
+    <p style="margin-top:0.8rem;font-size:0.8rem;color:#666;">Ingredientes premium · Sin premezclas · Hecho con amor 🍰</p>
 </footer>
 
 </body>
